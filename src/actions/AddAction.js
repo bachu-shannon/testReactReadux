@@ -5,7 +5,8 @@ export function setUser(newUser) {
     return {
         type: ADD_USER,
         payload: {
-            newUser: newUser
+            newUser: newUser,
+            success: "Успешно добавлен"
         }
     }
 }

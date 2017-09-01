@@ -1,7 +1,8 @@
 import { ADD_USER } from '../constants/action_types';
 
 const initialState = {
-    newUser: {}
+    newUser: {},
+    success: ''
 };
 
 export default function addUser(state= initialState, action) {

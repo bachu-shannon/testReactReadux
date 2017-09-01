@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from './Navigation';
-import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from "react-bootstrap";
+import { Form, FormGroup, FormControl, Button, Col, ControlLabel, Well } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { addUser } from "../actions/AddAction";
 
@@ -30,6 +30,7 @@ class Add extends React.Component {
         return (
             <div>
                 <Navigation />
+                {this.props.newUser.name} {this.props.success}
                 <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
                     <FormGroup controlId="formHorizontalEmail">
                         <Col componentClass={ControlLabel} sm={2}>
@@ -162,7 +163,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        newUser: state
+        newUser: state.addUser.newUser,
+        success: state.addUser.success
     };
 };
 
