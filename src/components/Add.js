@@ -1,8 +1,8 @@
 import React from "react";
 import Navigation from './Navigation';
-import { Form, FormGroup, FormControl, Button, Col, ControlLabel, Well } from "react-bootstrap";
+import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from "react-bootstrap";
 import { connect } from 'react-redux';
-import { addUser } from "../actions/AddAction";
+import { addUser } from "../actions/UsersAction";
 
 class Add extends React.Component {
 
