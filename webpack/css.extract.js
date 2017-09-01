@@ -13,7 +13,9 @@ module.exports = function() {
                                 loader: 'css-loader',
                                 options: {
                                     importLoaders: 1,
-                                    sourceMap: true
+                                    minimize: {
+                                        discardComments: false
+                                    }
                                 }
                             },
                         ]
