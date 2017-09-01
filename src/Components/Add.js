@@ -11,16 +11,18 @@ class Add extends React.Component {
         let newUser = {
             name: this.name.value,
             gender: this.gender.value,
-            birthYear: this.birthYear.value,
-            birthMonth: this.birthMonth.value,
-            birthDay: this.birthDay.value,
+            birthYear: Number(this.birthYear.value),
+            birthMonth: Number(this.birthMonth.value),
+            birthDay: Number(this.birthDay.value),
             phone: this.phone.value,
             email: this.email.value,
             address: this.address.value,
             description: this.description.value,
         };
         this.props.addUser(newUser);
+    }
 
+    componentDidUpdate() {
         console.log(this.props.newUser);
     }
 
@@ -160,7 +162,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        newUser: state.addUser.newUser
+        newUser: state
     };
 };
 
