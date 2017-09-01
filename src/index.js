@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap-theme.min.css';
 
 const history = createHistory();
 
-import App from './Components/App';
+import App from './components/App';
 
 ReactDOM.render(
     <Provider store={store}>

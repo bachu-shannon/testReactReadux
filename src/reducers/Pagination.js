@@ -1,4 +1,4 @@
-import { SET_CURRENT_PAGE } from '../constants/action_types';
+import { SET_CURRENT_PAGE } from '../constants/actionTypes';
 
 const initialState = {
     currentPage: 0,

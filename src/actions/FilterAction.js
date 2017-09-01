@@ -1,4 +1,4 @@
-import { FILTER_USER } from '../constants/action_types';
+import { FILTER_USER } from '../constants/actionTypes';
 
 export function filterUser(name) {
     return {

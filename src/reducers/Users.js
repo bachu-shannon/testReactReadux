@@ -1,4 +1,4 @@
-import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL } from '../constants/action_types';
+import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL } from '../constants/actionTypes';
 
 const initialState = [];
 
