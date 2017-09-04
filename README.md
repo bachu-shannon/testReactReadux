@@ -1,4 +1,7 @@
 # testReactRedux
-# node v6.11.2
-# npm install
-# npm run start
+node version
+node v6.11.2
+# Instalation
+npm install
+# Run
+npm run start
