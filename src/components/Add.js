@@ -143,7 +143,7 @@ class Add extends React.Component {
                         </FormGroup>
 
                         <FormGroup>
-                            <Col smOffset={2} sm={4}>
+                            <Col smOffset={1} sm={4}>
                                 <Button type="submit">
                                     ADD
                                 </Button>
