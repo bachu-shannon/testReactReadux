@@ -16,4 +16,3 @@ export default function addUser(state= initialState, action) {
             return state;
     }
 }
-

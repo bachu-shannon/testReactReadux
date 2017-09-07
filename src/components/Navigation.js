@@ -1,17 +1,21 @@
 import React from 'react';
-import { Navbar, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { NavLink,  } from 'react-router-dom';
 
 class Navigation extends React.Component {
     render() {
         return (
-            <Navbar inverse>
-                <Button bsStyle="link">
-                    <NavLink to="/">Users</NavLink>
-                </Button>
-                <Button bsStyle="link">
-                    <NavLink to="/add-user">Add user</NavLink>
-                </Button>
+            <Navbar inverse collapseOnSelect>
+                <Navbar.Collapse>
+                    <Col sm={12}>
+                        <Navbar.Brand>
+                            <NavLink to="/">Users</NavLink>
+                        </Navbar.Brand>
+                        <Navbar.Brand>
+                            <NavLink to="/add-user">Add user</NavLink>
+                        </Navbar.Brand>
+                    </Col>
+                </Navbar.Collapse>
             </Navbar>
         )
     }

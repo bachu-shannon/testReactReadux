@@ -4,7 +4,7 @@
   "description": "test webpack redux",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --env development --inline --hot",
+    "start": "webpack-dev-server --env development --inline --hot --history-api-fallback",
     "build": "webpack --env production",
     "server": ""
   },

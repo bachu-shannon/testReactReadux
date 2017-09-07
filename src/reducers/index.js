@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import users from './Users';
+import user from './User';
 import filterUser from './Filter';
 import pagination from './Pagination';
 import addUser from './Add';
@@ -7,6 +8,7 @@ import { routerReducer } from 'react-router-redux'
 
 let reducers = combineReducers({
     users,
+    user,
     filterUser,
     pagination,
     addUser,
