@@ -1,37 +1,54 @@
 import React from "react";
 import Navigation from './Navigation';
-import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from "react-bootstrap";
+import { Form, FormGroup, FormControl, Button, Col, ControlLabel, ListGroup, ListGroupItem } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { addUser } from "../actions/UsersAction";
 
 class Add extends React.Component {
 
-    handleSubmit(event) {
-        event.preventDefault();
-        let newUser = {
-            name: this.name.value,
-            gender: this.gender.value,
-            birthYear: Number(this.birthYear.value),
-            birthMonth: Number(this.birthMonth.value),
-            birthDay: Number(this.birthDay.value),
-            phone: this.phone.value,
-            email: this.email.value,
-            address: this.address.value,
-            description: this.description.value,
-        };
-        this.props.addUser(newUser);
-    }
+	handleSubmit(event) {
+		event.preventDefault();
+		let newUser = {
+			name: this.name.value,
+			gender: this.gender.value,
+			birthYear: Number(this.birthYear.value),
+			birthMonth: Number(this.birthMonth.value),
+			birthDay: Number(this.birthDay.value),
+			phone: this.phone.value,
+			email: this.email.value,
+			address: this.address.value,
+			description: this.description.value,
+		};
+		this.props.addUser(newUser);
+	}
 
-    componentDidUpdate() {
-        console.log(this.props.newUser);
-    }
+	componentDidUpdate() {
+		console.log(this.props.status);
+	}
 
-    render() {
-        return (
+	renderStatus() {
+		if(this.props.error !== '') {
+			return(
+                <ListGroup>
+                    <ListGroupItem bsStyle="danger">{this.props.error}</ListGroupItem>
+                </ListGroup>
+			)
+		}
+		if(this.props.status !== '') {
+			return(
+                <ListGroup>
+                    <ListGroupItem bsStyle="success">{this.props.status}</ListGroupItem>
+                </ListGroup>
+			)
+		}
+	}
+
+	render() {
+		return (
             <row>
                 <Navigation />
+                <Col sm={12}>{this.renderStatus()}</Col>
                 <Col sm={12}>
-                    {this.props.success}
                     <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
                         <FormGroup controlId="formHorizontalEmail">
                             <Col componentClass={ControlLabel} sm={1}>
@@ -152,22 +169,22 @@ class Add extends React.Component {
                     </Form>
                 </Col>
             </row>
-        )
+		)
 
-    }
+	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        addUser: (newUser) => dispatch(addUser(newUser))
-    }
+	return {
+		addUser: (newUser) => dispatch(addUser(newUser))
+	}
 };
 
 const mapStateToProps = (state) => {
-    return {
-        newUser: state.addUser.newUser,
-        success: state.addUser.success
-    };
+	return {
+		status: state.addUser.status,
+		error: state.errorStatus
+	};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Add);

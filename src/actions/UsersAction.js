@@ -1,4 +1,4 @@
-import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL, ADD_USER, GET_USER } from '../constants/actionTypes';
+import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL, ADD_USER, GET_USER, ADD_USER_ERROR } from '../constants/actionTypes';
 import axios from 'axios';
 
 function getUsersRequest() {
@@ -57,21 +57,25 @@ export function getUser(userId) {
     }
 }
 
-
-
 export function setUser(newUser) {
     return {
         type: ADD_USER,
         payload: {
             newUser: newUser,
-            success: "Успешно добавлен"
+			status: newUser.name + "успешно добавлен"
         }
     }
 }
 
+export function setUserError() {
+	return {
+		type: ADD_USER_ERROR,
+		payload: "Упсс...! Возникла ошибка"
+	}
+}
+
 export function addUser(newUser) {
     return dispatch => {
-        dispatch(setUser(newUser));
         axios.post('http://api.demo.lakmus.org/api/clients/', {
                 params: {
                     name: newUser.name,
@@ -86,10 +90,10 @@ export function addUser(newUser) {
                 }
             })
             .then((response) => {
-                console.log(response);
+				dispatch(setUser(response.data));
             })
-            .then((error) => {
-                console.log(error);
+			.catch((error) => {
+				dispatch(setUserError());
             })
     }
 }

@@ -2,7 +2,7 @@ import { ADD_USER } from '../constants/actionTypes';
 
 const initialState = {
     newUser: {},
-    success: ''
+    status: ''
 };
 
 export default function addUser(state= initialState, action) {
