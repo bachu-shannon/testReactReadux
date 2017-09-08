@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getUsers } from "../actions/UsersAction";
 import { NavLink } from "react-router-dom";
 import Navigation from './Navigation';
-import { Table, Button, Col } from 'react-bootstrap';
+import { Table, Button, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { setCurrentPage } from "../actions/PaginationAction";
 import Filter from "./Filter";
 
@@ -34,32 +34,39 @@ class Users extends React.Component {
         this.props.setCurrentPage(pageNumber);
     }
 
-    render() {
-        return (
-            <row>
-                <Navigation />
+    renderUsers() {
+        if (this.props.users.failure) {
+            return (
+                <Col sm={5}>
+                    <ListGroup>
+                        <ListGroupItem bsStyle="danger">Клиенты не найдены!!!</ListGroupItem>
+                    </ListGroup>
+                </Col>
+            )
+        }else{
+            return (
                 <Col sm={12}>
                     <Table striped bordered condensed hover>
                         <thead>
-                            <tr>
-                                <th></th>
-                                <th><Filter /></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>email</th>
-                                <th>phone</th>
-                                <th>address</th>
-                                <th>birthday</th>
-                            </tr>
+                        <tr>
+                            <th></th>
+                            <th><Filter /></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>phone</th>
+                            <th>address</th>
+                            <th>birthday</th>
+                        </tr>
                         </thead>
                         <tbody>
-                        {this.props.users.map((user, index) => {
+                        {this.props.users.users.map((user, index) => {
                             return (
                                 <tr key={index}>
                                     <td>{user.id}</td>
@@ -85,13 +92,22 @@ class Users extends React.Component {
                      получения всех страниц для отрисовки полноценной пагинации,
                      вынужлен делать такую реализацию */}
                     <Button bsStyle="primary" onClick={this.handlePrevPageClick.bind(this)}>Prev</Button>
-                        <Button>
-                            {
-                                this.props.pagination.currentPage + 1
-                            }
-                        </Button>
+                    <Button>
+                        {
+                            this.props.pagination.currentPage + 1
+                        }
+                    </Button>
                     <Button bsStyle="primary" onClick={this.handleNextPageClick.bind(this)}>Next</Button>
                 </Col>
+            )
+        }
+    }
+
+    render() {
+        return (
+            <row>
+                <Navigation />
+                {this.renderUsers()}
             </row>
         )
     }

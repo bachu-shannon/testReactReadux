@@ -12,7 +12,17 @@ function getUsersResponse(data) {
     return {
         type: GET_USERS_RESPONSE,
         payload: {
-            users: data
+            users: data,
+            failure: false
+        }
+    }
+}
+
+function getUsersFailure() {
+    return {
+        type: GET_USERS_FAIL,
+        payload: {
+            failure: true
         }
     }
 }
@@ -32,7 +42,10 @@ export function getUsers(name, start=0, limit=50) {
             })
             .then((data) => {
                 dispatch(getUsersResponse(data));
-            });
+            })
+            .catch((error) => {
+		        dispatch(getUsersFailure());
+            })
     }
 }
 
@@ -75,8 +88,7 @@ export function setUser(newUser) {
     return {
         type: ADD_USER,
         payload: {
-            newUser: newUser,
-			status: newUser.name + " успешно добавлен"
+            newUser: newUser
         }
     }
 }
@@ -85,7 +97,8 @@ function addUserStatusFailure(text) {
 	return {
 		type: ADD_USER_STATUS_FAILURE,
 		payload: {
-            failure: text
+		    success: '',
+            error: text
         }
 	}
 }
@@ -93,7 +106,8 @@ function addUserStatusSuccess(text) {
     return {
         type: ADD_USER_STATUS_SUCCESS,
         payload: {
-            success: text
+            success: text,
+            error: ''
         }
     }
 }

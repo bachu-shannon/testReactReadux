@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { addUser } from "../actions/UsersAction";
 
 class Add extends React.Component {
+    componentDidMount() {
+        console.log(this.props.statusSuccess);
+    }
 	handleSubmit(event) {
 		event.preventDefault();
 		let newUser = {
@@ -29,10 +32,10 @@ class Add extends React.Component {
                 </ListGroup>
 			)
 		}
-        if(this.props.statusFailure !== '') {
+        if(this.props.statusError !== '') {
             return(
                 <ListGroup>
-                    <ListGroupItem bsStyle="danger">{this.props.statusFailure}</ListGroupItem>
+                    <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
                 </ListGroup>
             )
         }
@@ -177,9 +180,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
 	return {
-	    state: state,
 		statusSuccess: state.status.success,
-        statusFailure: state.status.failure
+		statusError: state.status.error
 	};
 };
 

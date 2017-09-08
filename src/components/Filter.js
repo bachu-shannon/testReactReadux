@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = state => {
     return {
-        users: state.users.filter(user => user.name.includes(state.filterUser))
+        users: state.users.users.filter(user => user.name.includes(state.filterUser))
     };
 };
 

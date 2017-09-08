@@ -2,7 +2,7 @@ import { GET_USER, GET_USER_FAILURE } from '../constants/actionTypes';
 
 const initialState = {
     user: {},
-    failure: null
+    failure: false
 };
 
 export default function getUser(state = initialState, action) {
@@ -14,8 +14,7 @@ export default function getUser(state = initialState, action) {
             };
         case GET_USER_FAILURE:
             return {
-                ...state,
-                ...action.payload
+                failure: action.payload.failure
             };
         default:
             return state;
