@@ -1,7 +1,7 @@
 import { ADD_USER_STATUS_FAILURE, ADD_USER_STATUS_SUCCESS } from '../constants/actionTypes';
 
 const initialState = {
-	error: '',
+	failure: '',
 	success: ''
 };
 

@@ -71,7 +71,7 @@ export function addUserStatusFailure(text) {
 	return {
 		type: ADD_USER_STATUS_FAILURE,
 		payload: {
-		    error: text
+            failure: text
         }
 	}
 }

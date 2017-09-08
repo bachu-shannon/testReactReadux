@@ -29,10 +29,10 @@ class Add extends React.Component {
                 </ListGroup>
 			)
 		}
-        if(this.props.statusError !== '') {
+        if(this.props.statusFailure !== '') {
             return(
                 <ListGroup>
-                    <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
+                    <ListGroupItem bsStyle="danger">{this.props.statusFailure}</ListGroupItem>
                 </ListGroup>
             )
         }
@@ -179,7 +179,7 @@ const mapStateToProps = (state) => {
 	return {
 	    state: state,
 		statusSuccess: state.status.success,
-		statusError: state.status.error
+        statusFailure: state.status.failure
 	};
 };
 
