@@ -6,36 +6,36 @@ import { addUser } from "../actions/UsersAction";
 
 class Add extends React.Component {
 
-	handleSubmit(event) {
-		event.preventDefault();
-		let newUser = {
-			name: this.name.value,
-			gender: this.gender.value,
-			birthYear: Number(this.birthYear.value),
-			birthMonth: Number(this.birthMonth.value),
-			birthDay: Number(this.birthDay.value),
-			phone: this.phone.value,
-			email: this.email.value,
-			address: this.address.value,
-			description: this.description.value,
-		};
-		this.props.addUser(newUser);
-	}
+    handleSubmit(event) {
+        event.preventDefault();
+        let newUser = {
+            name: this.name.value,
+            gender: this.gender.value,
+            birthYear: Number(this.birthYear.value),
+            birthMonth: Number(this.birthMonth.value),
+            birthDay: Number(this.birthDay.value),
+            phone: this.phone.value,
+            email: this.email.value,
+            address: this.address.value,
+            description: this.description.value,
+        };
+        this.props.addUser(newUser);
+    }
 
     renderStatus() {
         if(this.props.statusSuccess !== '') {
-        return (
-        <ListGroup>
-        <ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
-        </ListGroup>
-        )
+            return (
+            <ListGroup>
+            <ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
+            </ListGroup>
+            )
         }
         if(this.props.statusError !== '') {
-        return (
-        <ListGroup>
-        <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
-        </ListGroup>
-        )
+            return (
+            <ListGroup>
+            <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
+            </ListGroup>
+            )
         }
     }
 
