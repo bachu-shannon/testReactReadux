@@ -22,22 +22,22 @@ class Add extends React.Component {
 		this.props.addUser(newUser);
 	}
 
-	renderStatus() {
-		if(this.props.statusSuccess !== '') {
-		    return (
-		        <ListGroup>
-                    <ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
-                </ListGroup>
-            )
-		}
-        if(this.props.statusError !== '') {
-		    return (
-		        <ListGroup>
-                    <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
-                </ListGroup>
-            )
-		}
-	}
+renderStatus() {
+if(this.props.statusSuccess !== '') {
+return (
+<ListGroup>
+<ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
+</ListGroup>
+)
+}
+if(this.props.statusError !== '') {
+return (
+<ListGroup>
+<ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
+</ListGroup>
+)
+}
+}
 
 	render() {
 		return (
@@ -165,7 +165,7 @@ class Add extends React.Component {
                     </Form>
                 </Col>
             </row>
-		)
+        )
 	}
 }
 
