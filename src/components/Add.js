@@ -28,7 +28,7 @@ class Add extends React.Component {
 		        <ListGroup>
                     <ListGroupItem bsStyle="success">
                         {this.props.statusSuccess}
-                        </ListGroupItem>
+                    </ListGroupItem>
                 </ListGroup>
             )
 		}
@@ -37,7 +37,7 @@ class Add extends React.Component {
 		        <ListGroup>
                     <ListGroupItem bsStyle="danger">
                         {this.props.statusError}
-                        </ListGroupItem>
+                    </ListGroupItem>
                 </ListGroup>
             )
 		}
