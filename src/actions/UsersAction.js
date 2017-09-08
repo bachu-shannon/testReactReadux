@@ -94,13 +94,13 @@ export function setUser(newUser) {
 }
 
 function addUserStatusFailure(text) {
-	return {
-		type: ADD_USER_STATUS_FAILURE,
-		payload: {
-		    success: '',
+    return {
+        type: ADD_USER_STATUS_FAILURE,
+        payload: {
+            success: '',
             error: text
         }
-	}
+    }
 }
 
 function addUserStatusSuccess(text) {
