@@ -5,7 +5,7 @@ import filterUser from './Filter';
 import pagination from './Pagination';
 import addUser from './Add';
 import status from './Status';
-import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux';
 
 let reducers = combineReducers({
     users,
@@ -13,7 +13,7 @@ let reducers = combineReducers({
     filterUser,
     pagination,
     addUser,
-	status,
+    status,
     router: routerReducer
 });
 
