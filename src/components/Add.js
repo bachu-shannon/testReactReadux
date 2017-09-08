@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 import { addUser } from "../actions/UsersAction";
 
 class Add extends React.Component {
-    componentDidMount() {
-        console.log(this.props.statusSuccess);
-    }
+
 	handleSubmit(event) {
 		event.preventDefault();
 		let newUser = {
