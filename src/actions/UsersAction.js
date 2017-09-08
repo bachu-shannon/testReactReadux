@@ -102,6 +102,7 @@ function addUserStatusFailure(text) {
         }
 	}
 }
+
 function addUserStatusSuccess(text) {
     return {
         type: ADD_USER_STATUS_SUCCESS,
