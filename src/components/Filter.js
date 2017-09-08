@@ -14,7 +14,7 @@ class Filter extends React.Component {
         return (
             <FormControl
                 type="text"
-                placeholder="Enter text"
+                placeholder="Search..."
                 inputRef={ref => { this.filterName = ref; }}
                 onChange={
                     debounce(1000,

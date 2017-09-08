@@ -1,4 +1,4 @@
-import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL, ADD_USER, GET_USER, ADD_USER_ERROR } from '../constants/actionTypes';
+import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL, ADD_USER, GET_USER, ADD_USER_STATUS_FAILURE, ADD_USER_STATUS_SUCCESS } from '../constants/actionTypes';
 import axios from 'axios';
 
 function getUsersRequest() {
@@ -62,16 +62,26 @@ export function setUser(newUser) {
         type: ADD_USER,
         payload: {
             newUser: newUser,
-			status: newUser.name + "успешно добавлен"
+			status: newUser.name + " успешно добавлен"
         }
     }
 }
 
-export function setUserError() {
+export function addUserStatusFailure(text) {
 	return {
-		type: ADD_USER_ERROR,
-		payload: "Упсс...! Возникла ошибка"
+		type: ADD_USER_STATUS_FAILURE,
+		payload: {
+		    error: text
+        }
 	}
+}
+export function addUserStatusSuccess(text) {
+    return {
+        type: ADD_USER_STATUS_SUCCESS,
+        payload: {
+            success: text
+        }
+    }
 }
 
 export function addUser(newUser) {
@@ -93,10 +103,11 @@ export function addUser(newUser) {
 				return response.data;
             })
             .then((data) => {
-				dispatch(setUser(data));
+                dispatch(setUser(data));
+                dispatch(addUserStatusSuccess(data.name + ' успешно добавлен'));
             })
 			.catch((error) => {
-				dispatch(setUserError());
+				dispatch(addUserStatusFailure("Упсс...! Возникла ошибка"));
             })
     }
 }
