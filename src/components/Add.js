@@ -22,10 +22,6 @@ class Add extends React.Component {
 		this.props.addUser(newUser);
 	}
 
-	componentDidUpdate() {
-		console.log(this.props.status);
-	}
-
 	renderStatus() {
 		if(this.props.error !== '') {
 			return(
@@ -47,7 +43,7 @@ class Add extends React.Component {
 		return (
             <row>
                 <Navigation />
-                <Col sm={12}>{this.renderStatus()}</Col>
+                <Col sm={5}>{this.renderStatus()}</Col>
                 <Col sm={12}>
                     <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
                         <FormGroup controlId="formHorizontalEmail">

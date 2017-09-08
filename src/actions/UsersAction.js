@@ -90,7 +90,10 @@ export function addUser(newUser) {
                 }
             })
             .then((response) => {
-				dispatch(setUser(response.data));
+				return response.data;
+            })
+            .then((data) => {
+				dispatch(setUser(data));
             })
 			.catch((error) => {
 				dispatch(setUserError());
