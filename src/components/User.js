@@ -18,7 +18,7 @@ class User extends React.Component {
             color: "red",
             marginBottom: 10
         };
-        if(this.props.status) {
+        if(this.props.failure) {
             return (
                 <Col sm={5}>
                     <ListGroup>
@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state, ownProps) => {
     return {
         user: state.user.user,
-        status: state.user.failure,
+        failure: state.user.failure,
         userId: ownProps.match.params.id
     };
 };
