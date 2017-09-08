@@ -25,22 +25,22 @@ class Add extends React.Component {
     renderStatus() {
         if(this.props.statusSuccess !== '') {
             return (
-            <ListGroup>
-            <ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
-            </ListGroup>
+                <ListGroup>
+                    <ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
+                </ListGroup>
             )
         }
         if(this.props.statusError !== '') {
             return (
-            <ListGroup>
-            <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
-            </ListGroup>
+                <ListGroup>
+                    <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
+                </ListGroup>
             )
         }
     }
 
-	render() {
-		return (
+    render() {
+        return (
             <row>
                 <Navigation />
                 <Col sm={5}>{this.renderStatus()}</Col>
@@ -51,11 +51,11 @@ class Add extends React.Component {
                                 name
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter name"
-                                    inputRef={ref => { this.name = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter name"
+                                inputRef={ref => { this.name = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup controlId="formHorizontalPassword">
@@ -63,11 +63,11 @@ class Add extends React.Component {
                                 gender
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter gender"
-                                    inputRef={ref => { this.gender = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter gender"
+                                inputRef={ref => { this.gender = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -75,11 +75,11 @@ class Add extends React.Component {
                                 birthYear
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter birthYear"
-                                    inputRef={ref => { this.birthYear = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter birthYear"
+                                inputRef={ref => { this.birthYear = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -87,11 +87,11 @@ class Add extends React.Component {
                                 birthMonth
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter birthMonth"
-                                    inputRef={ref => { this.birthMonth = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter birthMonth"
+                                inputRef={ref => { this.birthMonth = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -99,11 +99,11 @@ class Add extends React.Component {
                                 birthDay
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter birthDay"
-                                    inputRef={ref => { this.birthDay = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter birthDay"
+                                inputRef={ref => { this.birthDay = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -111,11 +111,11 @@ class Add extends React.Component {
                                 phone
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter phone"
-                                    inputRef={ref => { this.phone = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter phone"
+                                inputRef={ref => { this.phone = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -123,11 +123,11 @@ class Add extends React.Component {
                                 email
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter email"
-                                    inputRef={ref => { this.email = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter email"
+                                inputRef={ref => { this.email = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -135,11 +135,11 @@ class Add extends React.Component {
                                 address
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Enter address"
-                                    inputRef={ref => { this.address = ref; }}
-                                />
+                            <FormControl
+                                type="text"
+                                placeholder="Enter address"
+                                inputRef={ref => { this.address = ref; }}
+                            />
                             </Col>
                         </FormGroup>
                         <FormGroup>
@@ -147,26 +147,26 @@ class Add extends React.Component {
                                 description
                             </Col>
                             <Col sm={4}>
-                                <FormControl
-                                    componentClass="textarea"
-                                    placeholder="Enter description"
-                                    inputRef={ref => { this.description = ref; }}
-                                />
+                            <FormControl
+                                componentClass="textarea"
+                                placeholder="Enter description"
+                                inputRef={ref => { this.description = ref; }}
+                            />
                             </Col>
                         </FormGroup>
 
                         <FormGroup>
                             <Col smOffset={1} sm={4}>
-                                <Button type="submit">
-                                    ADD
-                                </Button>
+                            <Button type="submit">
+                                ADD
+                            </Button>
                             </Col>
                         </FormGroup>
                     </Form>
                 </Col>
             </row>
         )
-	}
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
