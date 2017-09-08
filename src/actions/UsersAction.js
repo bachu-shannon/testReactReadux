@@ -1,4 +1,4 @@
-import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL, ADD_USER, GET_USER, ADD_USER_STATUS_FAILURE, ADD_USER_STATUS_SUCCESS } from '../constants/actionTypes';
+import { GET_USERS_REQUEST, GET_USERS_RESPONSE, GET_USERS_FAIL, ADD_USER, GET_USER, GET_USER_FAILURE, ADD_USER_STATUS_FAILURE, ADD_USER_STATUS_SUCCESS } from '../constants/actionTypes';
 import axios from 'axios';
 
 function getUsersRequest() {
@@ -36,11 +36,21 @@ export function getUsers(name, start=0, limit=50) {
     }
 }
 
-export function getUserResponse(data) {
+function getUserResponse(data) {
     return {
         type: GET_USER,
         payload: {
-            user: data
+            user: data,
+            failure: null
+        }
+    }
+}
+
+function getUserFailure() {
+    return {
+        type: GET_USER_FAILURE,
+        payload: {
+            failure: true
         }
     }
 }
@@ -53,7 +63,11 @@ export function getUser(userId) {
             })
             .then((data) => {
                 dispatch(getUserResponse(data));
-            });
+            })
+            .catch((error) => {
+                dispatch(getUserFailure("Клиент не найден!!!"));
+            })
+
     }
 }
 
@@ -67,7 +81,7 @@ export function setUser(newUser) {
     }
 }
 
-export function addUserStatusFailure(text) {
+function addUserStatusFailure(text) {
 	return {
 		type: ADD_USER_STATUS_FAILURE,
 		payload: {
@@ -75,7 +89,7 @@ export function addUserStatusFailure(text) {
         }
 	}
 }
-export function addUserStatusSuccess(text) {
+function addUserStatusSuccess(text) {
     return {
         type: ADD_USER_STATUS_SUCCESS,
         payload: {

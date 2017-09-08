@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getUser } from "../actions/UsersAction";
 import { NavLink } from "react-router-dom";
-import { Table, Col } from 'react-bootstrap';
+import { Table, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import Navigation from './Navigation';
 
 class User extends React.Component {
@@ -10,17 +10,24 @@ class User extends React.Component {
         this.props.getUser(this.props.userId);
     }
 
-    render() {
+    renderUser(){
+        let { user } = this.props;
         let style = {
             display: "block",
             fontSize: 18,
             color: "red",
             marginBottom: 10
         };
-        let { user } = this.props;
-        return (
-            <row>
-                <Navigation />
+        if(this.props.status) {
+            return (
+                <Col sm={5}>
+                    <ListGroup>
+                        <ListGroupItem bsStyle="danger">Клиент не найден!!!</ListGroupItem>
+                    </ListGroup>
+                </Col>
+            )
+        }else{
+            return (
                 <Col sm={12}>
                     <NavLink style={style} to="/">назад</NavLink>
                     <Table striped bordered condensed hover>
@@ -46,10 +53,20 @@ class User extends React.Component {
                         </tbody>
                     </Table>
                 </Col>
+            )
+        }
+
+    }
+
+    render() {
+        return (
+            <row>
+                <Navigation />
+                {this.renderUser()}
             </row>
         )
     }
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -59,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        user: state.user,
+        user: state.user.user,
+        status: state.user.failure,
         userId: ownProps.match.params.id
     };
 };
