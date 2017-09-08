@@ -166,7 +166,6 @@ class Add extends React.Component {
                 </Col>
             </row>
 		)
-
 	}
 }
 
