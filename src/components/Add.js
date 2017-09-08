@@ -26,18 +26,14 @@ class Add extends React.Component {
 		if(this.props.statusSuccess !== '') {
 		    return(
 		        <ListGroup>
-                    <ListGroupItem bsStyle="success">
-                        {this.props.statusSuccess}
-                    </ListGroupItem>
+                    <ListGroupItem bsStyle="success">{this.props.statusSuccess}</ListGroupItem>
                 </ListGroup>
             )
 		}
         if(this.props.statusError !== '') {
 		    return(
 		        <ListGroup>
-                    <ListGroupItem bsStyle="danger">
-                        {this.props.statusError}
-                    </ListGroupItem>
+                    <ListGroupItem bsStyle="danger">{this.props.statusError}</ListGroupItem>
                 </ListGroup>
             )
 		}
